@@ -4,8 +4,8 @@
   "description": "Lista informações sobre os 5 repositórios de linguagem C# mais antigos da Take, ordenados de forma crescente por data de criação.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
   },
   "author": "Beatriz Fagundes",
   "license": "ISC",

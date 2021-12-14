@@ -1,16 +1,9 @@
-const cors = require('cors');
-const express = require('express');
+const routes = require('express').Router();
 const fetch = require('node-fetch');
-
-const app = express();
-
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extend: true }));
 
 const githubURL = 'https://api.github.com/orgs/takenet/repos?sort=created&direction=asc&per_page=100';
 
-app.get('/', (req, res) => {
+routes.get('/', (req, res) => {
   fetch(githubURL)
   .then((response) => {
     if (response.ok) {
@@ -33,6 +26,4 @@ app.get('/', (req, res) => {
   ));
 });
 
-app.listen(3000, () => {
-  console.log('Aplicação ouvindo na porta 3000');
-});
+module.exports = routes;
