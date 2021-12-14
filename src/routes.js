@@ -14,7 +14,7 @@ routes.get('/', (req, res) => {
   })
   .then((response) => response.json())
   .then((json) => json.filter((repo) => repo.language === 'C#'))
-  .then((repos) => res.status(200).send(repos
+  .then((repos) => res.status(200).send({...repos
     .slice(0, 5)
     .map((repo) => (
       {
@@ -22,7 +22,7 @@ routes.get('/', (req, res) => {
         'name': repo.name,
         'description': repo.description
       }
-    ))
+    ))}
   ));
 });
 
