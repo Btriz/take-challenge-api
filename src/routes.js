@@ -14,12 +14,12 @@ routes.get('/', (req, res) => {
   })
   .then((response) => response.json())
   .then((json) => json.filter((repo) => repo.language === 'C#'))
-  .then((repos) => res.status(200).send({...repos
+  .then((repos) => res.status(200).json({...repos
     .slice(0, 5)
     .map((repo) => (
       {
         'image': repo.owner.avatar_url,
-        'name': repo.name,
+        'name': repo.full_name,
         'description': repo.description
       }
     ))}
